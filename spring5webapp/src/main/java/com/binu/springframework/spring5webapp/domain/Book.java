@@ -1,5 +1,6 @@
 package com.binu.springframework.spring5webapp.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -22,17 +23,16 @@ public class Book {
 	@ManyToMany
 	@JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
 	inverseJoinColumns = @JoinColumn(name = "author_id")) // this will be a separate relation table in db representing relationship between author and book tables
-	private Set<Author> authors;
+	private Set<Author> authors = new HashSet<>();
 
 	public Book() {
 	 
 	}
 
-	public Book(String title, String isbn, Set<Author> authors) {
+	public Book(String title, String isbn) {
 	 
 		this.title = title;
 		this.isbn = isbn;
-		this.authors = authors;
 	}
 
 	
