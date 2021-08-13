@@ -2,7 +2,7 @@ package com.binu.springframework.spring5webapp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.binu.springframework.spring5webapp.repository.BookRepository;
 
@@ -18,12 +18,12 @@ public class BookController {
 
 
 
-	@RequestMapping("/books")
+	@GetMapping("/books")
 	public String getBooks(Model model) {
 		
 		model.addAttribute("books",bookRepository.findAll());
 		
-		return "books";
+		return "books/list";
 	}
 
 }
